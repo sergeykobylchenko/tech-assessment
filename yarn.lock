@@ -830,6 +830,13 @@
   resolved "https://registry.yarnpkg.com/@hono/node-server/-/node-server-1.19.11.tgz#dc419f0826dd2504e9fc86ad289d5636a0444e2f"
   integrity sha512-dr8/3zEaB+p0D2n/IUrlPF1HZm586qgJNXK1a9fhg/PzdtkK7Ksd5l312tJX2yBuALqDYBlG20QEbayqPyxn+g==
 
+"@hookform/resolvers@^5.2.2":
+  version "5.2.2"
+  resolved "https://registry.yarnpkg.com/@hookform/resolvers/-/resolvers-5.2.2.tgz#5ac16cd89501ca31671e6e9f0f5c5d762a99aa12"
+  integrity sha512-A/IxlMLShx3KjV/HeTcTfaMxdwy690+L/ZADoeaTltLx+CVuzkeVIPuybK3jrRfw7YZnmdKsVVHAlEPIAEUNlA==
+  dependencies:
+    "@standard-schema/utils" "^0.3.0"
+
 "@humanfs/core@^0.19.1":
   version "0.19.1"
   resolved "https://registry.yarnpkg.com/@humanfs/core/-/core-0.19.1.tgz#17c55ca7d426733fe3c561906b8173c336b40a77"
@@ -1185,6 +1192,11 @@
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/merge-streams/-/merge-streams-4.0.0.tgz#abb11d99aeb6d27f1b563c38147a72d50058e339"
   integrity sha512-tlqY9xq5ukxTUZBmoOp+m61cqwQD5pHJtFY3Mn8CA8ps6yghLH/Hw8UPdqg4OLmFW3IFlcXnQNmo/dh8HzXYIQ==
+
+"@standard-schema/utils@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@standard-schema/utils/-/utils-0.3.0.tgz#3d5e608f16c2390c10528e98e59aef6bf73cae7b"
+  integrity sha512-e7Mew686owMaPJVNNLs55PUvgz371nKgwsc4vxE49zsODpJEnxgxRo2y/OKrqueavXgZNMDVj3DdHFlaSAeU8g==
 
 "@tailwindcss/node@4.2.2":
   version "4.2.2"
@@ -3833,6 +3845,11 @@ react-dom@^19.2.4:
   dependencies:
     scheduler "^0.27.0"
 
+react-hook-form@^7.72.0:
+  version "7.72.0"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.72.0.tgz#995a655b894249fd8798f36383e43f55ed66ae25"
+  integrity sha512-V4v6jubaf6JAurEaVnT9aUPKFbNtDgohj5CIgVGyPHvT9wRx5OZHVjz31GsxnPNI278XMu+ruFz+wGOscHaLKw==
+
 react-router@^7.13.2:
   version "7.13.2"
   resolved "https://registry.yarnpkg.com/react-router/-/react-router-7.13.2.tgz#bab22c9f96f81759e060a34c04e7527e5f6dbbe1"
@@ -3840,6 +3857,11 @@ react-router@^7.13.2:
   dependencies:
     cookie "^1.0.1"
     set-cookie-parser "^2.6.0"
+
+react-zoom-pan-pinch@^3.7.0:
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/react-zoom-pan-pinch/-/react-zoom-pan-pinch-3.7.0.tgz#7db4d2ec49c316eb20f71c56e9012eeb3ef4b504"
+  integrity sha512-UmReVZ0TxlKzxSbYiAj+LeGRW8s8LraAFTXRAxzMYnNRgGPsxCudwZKVkjvGmjtx7SW/hZamt69NUmGf4xrkXA==
 
 react@^19.2.4:
   version "19.2.4"
@@ -4740,7 +4762,7 @@ zod@^3.24.1:
   resolved "https://registry.yarnpkg.com/zod/-/zod-3.25.76.tgz#26841c3f6fd22a6a2760e7ccb719179768471e34"
   integrity sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==
 
-"zod@^3.25 || ^4.0", "zod@^3.25.0 || ^4.0.0":
+"zod@^3.25 || ^4.0", "zod@^3.25.0 || ^4.0.0", zod@^4.3.6:
   version "4.3.6"
   resolved "https://registry.yarnpkg.com/zod/-/zod-4.3.6.tgz#89c56e0aa7d2b05107d894412227087885ab112a"
   integrity sha512-rftlrkhHZOcjDwkGlnUtZZkvaPHCsDATp4pGpuOOMDaTdDDXF91wuVDJoWoPsKX/3YPQ5fHuF3STjcYyKr+Qhg==
