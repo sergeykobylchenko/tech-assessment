@@ -16,8 +16,6 @@ export interface Task {
   planId: string;
   x: number;
   y: number;
-  xRatio: number;
-  yRatio: number;
   title: string;
   description: string;
   status: TaskStatus;

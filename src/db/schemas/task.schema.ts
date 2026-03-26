@@ -10,8 +10,6 @@ export const taskSchema: RxJsonSchema<Task> = {
     planId: { type: 'string', maxLength: 100 },
     x: { type: 'number' },
     y: { type: 'number' },
-    xRatio: { type: 'number' },
-    yRatio: { type: 'number' },
     title: { type: 'string' },
     description: { type: 'string' },
     status: { type: 'string', enum: ['not-started', 'in-progress', 'blocked', 'final-check', 'done'] },
@@ -33,6 +31,6 @@ export const taskSchema: RxJsonSchema<Task> = {
     createdAt: { type: 'number' },
     updatedAt: { type: 'number' },
   },
-  required: ['id', 'planId', 'x', 'y', 'xRatio', 'yRatio', 'title', 'authorId', 'authorName', 'createdAt', 'updatedAt'],
+  required: ['id', 'planId', 'x', 'y', 'title', 'authorId', 'authorName', 'createdAt', 'updatedAt'],
   indexes: ['planId']
 };
