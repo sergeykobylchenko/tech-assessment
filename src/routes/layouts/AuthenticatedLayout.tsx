@@ -1,4 +1,4 @@
-import { Navigate, Outlet } from 'react-router';
+import { Navigate, Outlet, useLocation } from 'react-router';
 import { useUserStore } from '@/stores/useUserStore';
 import { DatabaseProvider } from '@/db/DatabaseProvider';
 import { SidebarProvider } from '@/components/ui/sidebar';
@@ -7,6 +7,8 @@ import { AppSidebar } from '@/components/shared/AppSidebar';
 
 export function AuthenticatedLayout() {
   const activeUserId = useUserStore((s) => s.activeUserId);
+  const location = useLocation();
+  const isSettings = location.pathname === '/settings';
 
   if (!activeUserId) {
     return <Navigate to="/login" replace />;
@@ -14,8 +16,8 @@ export function AuthenticatedLayout() {
 
   return (
     <DatabaseProvider userId={activeUserId}>
-      <SidebarProvider defaultOpen={false}>
-        <AppSidebar />
+      <SidebarProvider defaultOpen={false} open={isSettings ? false : undefined}>
+        {!isSettings && <AppSidebar />}
         <div className="flex min-w-0 flex-1 flex-col">
           <Header />
           <main>
