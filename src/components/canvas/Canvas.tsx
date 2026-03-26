@@ -4,8 +4,10 @@ import { useDatabase } from '@/hooks/useDatabase';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 import { useCanvasStore } from '@/stores/useCanvasStore';
 import { CanvasImage } from './CanvasImage';
-import { TaskPin } from './TaskPin';
-import { TaskForm } from './TaskForm';
+import { TaskPin } from '@/components/task/TaskPin';
+import { TaskForm } from '@/components/task/TaskForm';
+import { Popover, PopoverTrigger, PopoverContent } from '@/components/ui/popover';
+import type { Task } from '@/types/task.types';
 
 export function Canvas() {
   const { tasks } = useTasks();
@@ -28,7 +30,7 @@ export function Canvas() {
       const xRatio = (e.clientX - rect.left) / rect.width;
       const yRatio = (e.clientY - rect.top) / rect.height;
       const now = Date.now();
-      await db.tasks.insert({
+      const newTask = {
         id: crypto.randomUUID(),
         planId: '',
         x,
@@ -37,20 +39,24 @@ export function Canvas() {
         yRatio,
         title: '',
         description: '',
-        status: 'open',
+        status: 'not-started',
         priority: 'medium',
         authorId: user.id,
         authorName: user.name,
         createdAt: now,
         updatedAt: now,
-      });
+      } as Task;
 
+      try {
+        await db.tasks.insert(newTask);
+        selectTask(newTask.id);
+      } catch (error) {
+        console.error(error)
+      }
       setAddingTask(false);
     },
-    [isAddingTask, user, db, setAddingTask],
+    [isAddingTask, user, db, setAddingTask, selectTask],
   );
-
-  const selectedTask = tasks.find((t) => t.id === selectedTaskId) ?? null;
 
   return (
     <div className="relative flex h-full flex-col">
@@ -73,21 +79,28 @@ export function Canvas() {
       >
         <CanvasImage />
         {tasks.map((task) => (
-          <div className={`absolute flex-1`}
+          <div
+            key={task.id}
+            className="absolute flex -translate-x-1/2 -translate-y-full"
             style={{ left: `${task.x}%`, top: `${task.y}%` }}
           >
-            <TaskPin
-              key={task.id}
-              task={task}
-              isSelected={task.id === selectedTaskId}
-              onClick={() => selectTask(task.id === selectedTaskId ? null : task.id)}
-            />
-            {selectedTask?.id === task.id && (
-              <TaskForm
-                task={selectedTask}
-                onClose={() => selectTask(null)}
-              />
-            )}
+            <Popover
+              open={task.id === selectedTaskId}
+              onOpenChange={(open) => selectTask(open ? task.id : null)}
+            >
+              <PopoverTrigger asChild>
+                <TaskPin
+                  task={task}
+                  isSelected={task.id === selectedTaskId}
+                />
+              </PopoverTrigger>
+              <PopoverContent sideOffset={8} className="w-96 p-4">
+                <TaskForm
+                  task={task}
+                  onClose={() => selectTask(null)}
+                />
+              </PopoverContent>
+            </Popover>
           </div>
         ))}
       </div>

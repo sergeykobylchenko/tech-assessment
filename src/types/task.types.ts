@@ -1,14 +1,14 @@
-export type TaskStatus = 'open' | 'in-progress' | 'done';
+export type TaskStatus = 'not-started' | 'in-progress' | 'blocked' | 'final-check' | 'done';
 
 export type TaskPriority = 'low' | 'medium' | 'high';
 
-export type ChecklistItemStatus = 'pending' | 'done';
+export type ChecklistItemStatus = 'not-started' | 'in-progress' | 'blocked' | 'final-check' | 'done';
 
 export interface ChecklistItem {
   id: string;
   title: string;
   status: ChecklistItemStatus;
-  comment: string;
+  comment?: string;
 }
 
 export interface Task {
