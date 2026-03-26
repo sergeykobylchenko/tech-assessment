@@ -27,7 +27,7 @@ yarn preview
 
 ## Video Walkthrough
 
-> TODO: Add a short video explaining the code and the functionality.
+[Loom video](https://www.loom.com/share/49846f8fd87741e5a489a144976c4d2f)
 
 ## Time Spent
 

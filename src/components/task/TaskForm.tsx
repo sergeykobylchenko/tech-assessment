@@ -94,7 +94,7 @@ export function TaskForm({ task, onClose }: TaskFormProps) {
   }
 
   function addItem() {
-    append({ id: crypto.randomUUID(), title: '', status: 'not-started', comment: '' });
+    append({ id: crypto.randomUUID(), title: 'Check item', status: 'not-started', comment: '' });
   }
 
   return (
