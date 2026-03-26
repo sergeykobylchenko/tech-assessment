@@ -106,6 +106,11 @@ export function Canvas() {
       <div className="flex items-center gap-2 border-b p-2">
         <button
           onClick={() => setAddingTask(!isAddingTask)}
+          onKeyDown={(e) => {
+            if (e.key === 'Escape') {
+              setAddingTask(!isAddingTask);
+            }
+          }}
           className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
             isAddingTask
               ? 'bg-primary text-primary-foreground'
